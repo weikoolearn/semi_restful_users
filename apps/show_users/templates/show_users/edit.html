@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>edit_users</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'show_users/css/edit.css' %}">
+</head>
+<body>
+    <h1>Edit User {{ user.id }}</h1>
+    <form action="/{{ user.id }}/update" method="POST">
+        {% csrf_token %}
+        <label for="firs_tname">First name:</label>
+        <input type="text" name="first_name" id="firstname" value="{{ user.first_name">
+        <label for="last_name">Last name:</label>
+        <input type="text" name="last_name" id="lastname" value="{{ user.last_name }}">
+        <label for="email">Email:</label>
+        <input type="email" name="email" id="email" value="{{ user.email }}">
+        <input type="submit" name="submit" id="update" value="Update">
+    </form>
+
+    <a href="/{{ user.id }}">Show</a> | <a href="/">Go Back</a>
+</body>
+</html>

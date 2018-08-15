@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>add_users</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'show_users/css/new.css' %}">
+</head>
+<body>
+    <h1>Add a new user</h1>
+    <form action="/create" method="POST">
+        {% csrf_token %}
+        <label for="first_name">First name:</label>
+        <input type="text" name="first_name" id="firstname" placeholder="First Name">
+        <label for="last_name">Last name:</label>
+        <input type="text" name="last_name" id="lastname" placeholder="Last Name">
+        <label for="email">Email:</label>
+        <input type="email" name="email" id="email" placeholder="Email">
+        <input type="submit" name="submit" value="Create">
+    </form>
+    <a href="/">Go Back</a>
+</body>
+</html>
